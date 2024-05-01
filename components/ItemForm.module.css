@@ -17,8 +17,14 @@
   color: black;
   border-radius: 4px;
   cursor: pointer;
+  background-color: #fff;
 }
 
 .buttonContainer {
   margin-top: 4em;
+}
+
+.inputBox {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }

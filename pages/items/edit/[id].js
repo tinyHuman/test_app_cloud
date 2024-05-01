@@ -28,7 +28,7 @@ export default function EditItemPage() {
   return (
     <div>
       <h1>Update item</h1>
-      <ItemForm editedItem={item[0]} />
+      <ItemForm editedItem={item} />
     </div>
   );
 }

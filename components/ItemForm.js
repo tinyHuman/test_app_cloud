@@ -1,6 +1,7 @@
 import ItemsAPI from "@/lib/api/Items";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import styles from "./ItemForm.module.css";
 
 export default function ItemForm({ editedItem = null }) {
   const defaultItem = {
@@ -14,7 +15,7 @@ export default function ItemForm({ editedItem = null }) {
 
   useEffect(() => {
     if (editedItem != null) {
-      setItem(editedItem);
+      setItem(editedItem[0]);
     }
   }, [editedItem]);
 
@@ -45,11 +46,11 @@ export default function ItemForm({ editedItem = null }) {
     setIsLoading(false);
   };
   return (
-    <div>
+    <div className={styles.container}>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title</label>
-          <div>
+          <div className={styles.inputBox}>
             <input
               value={item.title}
               type="text"
@@ -62,20 +63,22 @@ export default function ItemForm({ editedItem = null }) {
         </div>
         <div>
           <label htmlFor="text">Text</label>
-          <div>
+          <div className={styles.inputBox}>
             <textarea
               value={item.text}
               type="text"
               name="text"
               id="text"
               placeholder="Text"
-              rows="10"
+              rows="20"
+              cols="50"
               onChange={handleChange}
             />
           </div>
         </div>
-
-        <button>Submit</button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.button}>Submit</button>
+        </div>
       </form>
     </div>
   );

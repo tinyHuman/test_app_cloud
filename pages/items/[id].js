@@ -9,7 +9,6 @@ export default function DetailItem({ item }) {
 
   const handleDelete = async () => {
     await ItemsAPI.delete(item);
-    router.push(`/`);
   };
 
   return !item ? null : (
